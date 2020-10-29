@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
+########################### Preaparing the nba data ##############################
 def prepare_nba(df):
     '''
    This function cleans up the column names, deletes columns, renames some columns 
@@ -26,3 +28,18 @@ def prepare_nba(df):
         plt.show()
     
     return df
+
+############################### Splitting the data ###################################
+
+def nba_split(df):
+    '''This function splits the data into train, validate and test data sets
+    '''
+    train_validate, test = train_test_split(df, test_size=.2, random_state=123)
+
+    train, validate = train_test_split(train_validate, test_size=.3, random_state=123)
+    
+    print(f'The shape of the train data set is {train.shape}')
+    print(f'The shape of the validate data set is {validate.shape}')
+    print(f'The shape of the test data set is {test.shape}')
+
+    return train, validate, test
