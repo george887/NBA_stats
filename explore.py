@@ -1,3 +1,4 @@
+import pandas as pd
 from sklearn.preprocessing import StandardScaler, QuantileTransformer, PowerTransformer, RobustScaler, MinMaxScaler
 
 from sklearn.linear_model import LinearRegression
@@ -59,9 +60,9 @@ def rfe_ranker(train):
     # return df sorted by rank
     return rfe_ranks_df.sort_values('Rank')
 
-    ###################### Select Kbest
+    ###################### Select Kbest #########################
 
-    def select_kbest(train_scaled, y_train, k):
+def select_kbest(train_scaled, y_train, k):
     '''
     Takes in the predictors (train_scaled), the target (y_train), the number of features to select (k) 
     and returns the names of the top k selected features
@@ -72,3 +73,27 @@ def rfe_ranker(train):
     f_support = f_selector.get_support()
     f_feature = train_scaled.iloc[:,f_support].columns.tolist()
     return f_feature
+
+    ################# Adding scaled columns ###########################
+
+def add_scaled_columns(train, validate, test, scaler, columns_to_scale):
+    ''' 
+    This function takes in the train, validate, test, scaler and columns to scale and returns scaled
+    columns
+    '''
+    new_column_names = [c + '_scaled' for c in columns_to_scale]
+    scaler.fit(train[columns_to_scale])
+    
+    train_scaled = pd.DataFrame(scaler.transform(train[columns_to_scale]), 
+                            columns=new_column_names, 
+                            index=train.index)
+    
+    validate_scaled = pd.DataFrame(scaler.transform(validate[columns_to_scale]), 
+                            columns=new_column_names, 
+                            index=validate.index)
+    
+    test_scaled = pd.DataFrame(scaler.transform(test[columns_to_scale]), 
+                            columns=new_column_names, 
+                            index=test.index)
+    
+    return train_scaled, validate_scaled, test_scaled
