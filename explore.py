@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler, QuantileTransformer, PowerTransformer, RobustScaler, MinMaxScaler
-
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.feature_selection import RFE, SelectKBest
+from sklearn.feature_selection import RFE, SelectKBest, f_regression
 
 def add_scaled_columns(train, validate, test, scaler, columns_to_scale):
     '''
@@ -23,7 +23,7 @@ def add_scaled_columns(train, validate, test, scaler, columns_to_scale):
 
 ######################### Uses Recursive Feature Elimination (RFE) ############################
 
-def rfe_ranker(train):
+def rfe_ranker(train_scaled, y_train, k):
     '''
     Uses Recursive Feature Elimination (RFE) to rank the given features in order of their usefulness in
     predicting a win with a linear regression model.
@@ -35,7 +35,7 @@ def rfe_ranker(train):
     lm.fit(train_scaled, y_train)
 
     # creating recursive feature elimination object and specifying to rank 5 of the best features
-    rfe = RFE(lm, 5)
+    rfe = RFE(lm, k)
 
     # using rfe object to transform features 
     x_rfe = rfe.fit_transform(train_scaled, y_train)
