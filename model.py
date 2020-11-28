@@ -24,13 +24,22 @@ def logistic_regression(X_train, y_train):
     #Accuracy of model
     score = logit.score(X_train, y_train)
 
-    print(f'The logistic regression models accuracy is {round(score * 100,2)}%\n')     
-    print(f'Confusion Matrix\n\n {confusion_matrix(y_train, y_pred)}\n') 
+    print(f'The logistic regression models accuracy is {round(score * 100,2)}%\n')
+    print(f'----------------------')     
+    print(f'Confusion Matrix\n\n {pd.crosstab(y_train, y_pred)}\n') 
+    print(f'----------------------') 
     
     # Coefficients for each feature  
     coef_df = pd.DataFrame(logit.coef_)
 
+    # List comprehension for columns in X_train
+    names = [column for column in X_train.columns]
+    
+    # Renaming columns to their names for coef_df
+    coef_df.columns = names
+
     print(f'Classification Report\n {classification_report(y_train, y_pred)}')
+    return coef_df, logit
 
     ######################## Decesion Tree ############################
 def decesion_tree(X_train, y_train, k):
@@ -50,11 +59,12 @@ def decesion_tree(X_train, y_train, k):
     # Estimate the probaility of win
     y_pred_proba = clf.predict_proba(X_train)
 
-    # Confusion matrix
-    print(f'Confusion Matrix: \n\n {confusion_matrix(y_train, y_pred)}\n' )
-
     print('The decision tree classifier accuracy : {:.2f}\n'
-         .format(clf.score(X_train, y_train)))
+        .format(clf.score(X_train, y_train)))
+    print(f'----------------------')
+    # Confusion matrix
+    print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
+    print(f'----------------------')
     print("Decesion Tree Model Classification Report:\n", classification_report(y_train, y_pred))
 
     ####################### Random Forest ###################################
@@ -74,11 +84,12 @@ def random_forest(X_train, y_train, k):
     # Accuracy
     rf.score(X_train, y_train)
 
-    # Confusion matrix
-    print(f'Confusion Matrix: \n\n {confusion_matrix(y_train, y_pred)}\n' )
-
     print('The random forest accuracy : {:.2f}\n'
              .format(rf.score(X_train, y_train)))
+    print(f'----------------------')
+    # Confusion matrix
+    print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
+    print(f'----------------------')
     print("Random Forest Model Classification Report:\n", classification_report(y_train, y_pred))
 
     ########################## KNN ###################################
@@ -95,9 +106,10 @@ def knn(X_train, y_train, k):
     # Estimate the probability
     y_pred_proba = knn.predict_proba(X_train)
 
-    # Confusion matrix
-    print(f'Confusion Matrix: \n\n {confusion_matrix(y_train, y_pred)}\n' )
-
     print('The k-neareast neighbor accuracy : {:.2f}\n'
                  .format(knn.score(X_train, y_train)))
+    print(f'----------------------')
+    # Confusion matrix
+    print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
+    print(f'----------------------') 
     print("K-Nearest Neighbor Classification Report:\n", classification_report(y_train, y_pred))
