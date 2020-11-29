@@ -5,10 +5,10 @@
 The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project.
 
 # Project Planning
-<details>
-  <summary> Click to Expand </summary>
   
 ## Data Acquisition
+<details>
+  <summary> Click to Expand </summary>
 - Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle.
 
 ## Data Preparation
@@ -32,21 +32,22 @@ Some data preparation was performed prior to exploring the data
 4. Home team will win more games than road team.
 
 ## Hypothesis Testing
-> H<sub>0</sub>: Does field goal percentage influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+> H<sub>0</sub>: Does field goal percentage influence a win? Alpha < .05 so we reject the null hypothesis H<sub>0</sub> 
 
-> H<sub>a</sub>: Does field goals attempted influence a win? Alpha > .05 so we fail to reject the null hypothesis > H<sub>0</sub> 
+> H<sub>a</sub>: Does field goals attempted influence a win? Alpha > .05 so we fail to reject the null hypothesis H<sub>0</sub> 
 
-> H<sub>0</sub>: Does 3 point shot percentage influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+> H<sub>0</sub>: Does 3 point shot percentage influence a win? Alpha < .05 so we reject the null hypothesis H<sub>0</sub> 
 
-> H<sub>a</sub>: Does assists influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+> H<sub>a</sub>: Does assists influence a win? Alpha < .05 so we reject the null hypothesis H<sub>0</sub> 
 
-> H<sub>a</sub>: Does total rebounds influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+> H<sub>a</sub>: Does total rebounds influence a win? Alpha < .05 so we reject the null hypothesis H<sub>0</sub> 
 
-> H<sub>a</sub>: Does having home court influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+> H<sub>a</sub>: Does having home court influence a win? Alpha < .05 so we reject the null hypothesis H<sub>0</sub> 
 
 
 ## Data Dictionary
 | **Column** | **Definition** |
+| :------- | :-------|
 | team | Name of the home team  |
 | game | Game number in season |
 | date | Date game played |
