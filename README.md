@@ -7,6 +7,7 @@ The goal of this project is to see what features help predict a team win using o
 # Project Planning
 <details>
   <summary> Click to Expand 
+  
 ## Data Acquisition
 - Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle.
 
