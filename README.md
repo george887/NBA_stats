@@ -1,30 +1,28 @@
+![maxresdefault](https://user-images.githubusercontent.com/62911364/100548752-211a6c00-3234-11eb-949c-38d71486c989.jpg)
 # NBA Classification Project
 
 ## Goal of Project
 The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project. 
 
-## Key Terms
-- A [single-unit property](https://help.rentingwell.com/article/multi-unit-vs-single-unit/) is a rental property that is rented as a single entity. A condo, a townhouse, or a vacation rental would typically be single-unit properties. If you’re adding a single-unit property to Renting Well you don’t need to add individual units – the tenant and lease are associated to the property itself.
-- [FIPS](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt#:~:text=FIPS%20codes%20are%20numbers%20which,to%20which%20the%20county%20belongs.) codes are numbers which uniquely identify geographic areas. The number of digits in FIPS codes vary depending on the level of geography. State-level FIPS codes have two digits, county-level FIPS codes have five digits of which the first two are the FIPS code of the state to which the county belongs.
-
 # Project Planning
+<details>
+  <summary> Click to Expand </summary>
+## Data Acquisition
+- Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle.
 
 ## Data Preparation
-For this project some filters were applied to help limit for only single unit properties, outliers and null values. 
-- Propertylandusetypeid = [260,261,262,279]
-- Bedroomcnt > 0 and < 6
-
-## Wrangle
-- Created a wrangle.py 
-- File contains functions to acquire and prepare the zillow data from the Codeup SQL server
-- Icludes the filters from data prepartion above
-- Handles and imputes missing values 
-- Data split into train, validate, test, X_train, y_train, X_validate, y_validate, X_test, y_test
+Some data preparation was performed prior to exploring the data 
+- Dummy variables were created for categorical variables of ```home``` team and ```winorloss``` to have binary values (0 & 1).   
+- Some variable names were changed for easier interpretation (refer to the data dictionary).
+- Split dataset into train, validate and test sets
+- Equations found in prepare.py
 
 ## Explore
 - Created an explore.py file
 - File contains functions to help create plots
 - Functions for KMeans, centroids, adding clusters/centroids to data frames and RFE ranker
+
+<details>
 
 ## Initial Thoughts
 1. Is there a relationship between price_per_sqft and logerror?
