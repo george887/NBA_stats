@@ -51,7 +51,7 @@ def decesion_tree(X_train, y_train, k):
     clf = DecisionTreeClassifier(max_depth=k, random_state=123)
 
     # Fitting the data to the trained data
-    clf.fit(X_train, y_train)
+    clf = clf.fit(X_train, y_train)
 
     # Array of the win/loss
     y_pred = clf.predict(X_train)
@@ -67,13 +67,15 @@ def decesion_tree(X_train, y_train, k):
     print(f'----------------------')
     print("Decesion Tree Model Classification Report:\n", classification_report(y_train, y_pred))
 
+    return clf
+
     ####################### Random Forest ###################################
 def random_forest(X_train, y_train, k):
     # Random forest object
     rf = RandomForestClassifier(n_estimators=100, max_depth=k, random_state=123)
 
     # Fitting the model
-    rf.fit(X_train, y_train)
+    rf = rf.fit(X_train, y_train)
 
     # Make predictions
     y_pred = rf.predict(X_train)
@@ -91,6 +93,8 @@ def random_forest(X_train, y_train, k):
     print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
     print(f'----------------------')
     print("Random Forest Model Classification Report:\n", classification_report(y_train, y_pred))
+    
+    return rf
 
     ########################## KNN ###################################
 def knn(X_train, y_train, k):
@@ -98,7 +102,7 @@ def knn(X_train, y_train, k):
     knn = KNeighborsClassifier(n_neighbors=k, weights='uniform')
 
     # Fit the model
-    knn.fit(X_train, y_train)
+    knn = knn.fit(X_train, y_train)
 
     # Make predictions
     y_pred = knn.predict(X_train)
@@ -113,3 +117,5 @@ def knn(X_train, y_train, k):
     print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
     print(f'----------------------') 
     print("K-Nearest Neighbor Classification Report:\n", classification_report(y_train, y_pred))
+
+    return knn
