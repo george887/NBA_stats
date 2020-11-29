@@ -6,7 +6,7 @@ The goal of this project is to see what features help predict a team win using o
 
 # Project Planning
 <details>
-  <summary> Click to Expand </summary>
+  <summary> Click to Expand 
 ## Data Acquisition
 - Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle.
 
@@ -22,7 +22,7 @@ Some data preparation was performed prior to exploring the data
 - File contains functions to help create plots
 - Functions for KMeans, centroids, adding clusters/centroids to data frames and RFE ranker
 
-<details>
+</summary>
 
 ## Initial Thoughts
 1. Is there a relationship between price_per_sqft and logerror?
