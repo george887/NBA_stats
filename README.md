@@ -45,7 +45,7 @@ Some data preparation was performed prior to exploring the data
 
 ## Data Dictionary
 <details>
-  <summary> Click to Expand </summary>
+  
 | **Column** | **Definition** |
 | :------- | :-------|
 | team | Name of the home team  |
@@ -86,7 +86,6 @@ Some data preparation was performed prior to exploring the data
 | opp.totalfouls | Opponents total fouls |
 | is_home | Away team = 0 Home team = 1 |
 | win | Loss = 0 win = 1 |
-<details>
   
 ## Conclusions
 - ANNOVA tests were ran on price per square feet and logerror & bed bath ratio and logerror
