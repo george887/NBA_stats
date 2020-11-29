@@ -2,7 +2,7 @@
 # NBA Classification Project
 
 ## Goal of Project
-The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project. 
+The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project.
 
 # Project Planning
 <details>
@@ -19,51 +19,73 @@ Some data preparation was performed prior to exploring the data
 - Equations found in prepare.py
 
 ## Explore
-- Created an explore.py file
-- File contains functions to help create plots
-- Functions for KMeans, centroids, adding clusters/centroids to data frames and RFE ranker
+- Created an explore.py file containing the recursive Feature Elemination function, Select K-Best function and scaled data frames to aid in modeling.
 
-<details>
+## Model
+- Classification models performed using model.py
+- Logistic Regression, Decesion Tree, Random Forest and K-Nearest Neighbor algorithims performed
 
 ## Initial Thoughts
-1. Is there a relationship between price_per_sqft and logerror?
-2. Is there a relationship between bed_bath_ratio and logerror?
-3. Is there a relationship between lot size per sqft and logerror?
-4. Is there a relationship between lot size per sqft and price per sqft?
+1. Team points and opponent points will tell me if a team wins or loses. I will not be using this in my analysis
+2. Field goal pct or field goals attempted will help in predicting a win.
+3. 3 pt pct, assists, and total rebounds will help predict a win.
+4. Home team will win more games than road team.
 
 ## Hypothesis Testing
-> H<sub>0</sub>: Means of price_per_sqft_ratio small, medium, large are equal
+> H<sub>0</sub>: Does field goal percentage influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
 
-> H<sub>a</sub>: Means of price_per_sqft_ratio small, medium, large are not equal
+> H<sub>a</sub>: Does field goals attempted influence a win? Alpha > .05 so we fail to reject the null hypothesis > H<sub>0</sub> 
 
-> H<sub>0</sub>: Means of bed_bath_ratio small, medium, large are equal
+> H<sub>0</sub>: Does 3 point shot percentage influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
 
-> H<sub>a</sub>: Means of bed_bath_ratio small, medium, large are not equal
+> H<sub>a</sub>: Does assists influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+
+> H<sub>a</sub>: Does total rebounds influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+
+> H<sub>a</sub>: Does having home court influence a win? Alpha < .05 so we reject the null hypothesis > H<sub>0</sub> 
+
 
 ## Data Dictionary
-| Column | Description | Data Type |
-| --- | ---| --- |
-| bathroomcnt | Number of bathrooms including fractional bathrooms | float64 |
-| bedroomcnt | Number of bedrooms | float64 |
-| buildingqualitytypeid | Assessment of condition of home from best (lowest) to worst (highest) | float64 |
-| sqft | Total squarefeet of home | float64 |
-| fips | Federal Information Processing System codes - unique geographical areas | float64 |
-| fullbathcnt | Number of full bathrooms | float64 |
-| latitude | Latitude of the property | float64 |
-| longitude | Longitude of the property | float64
-| lotsizesquarefeet| Size of the lot in square feet | float64 |
-| propertycountylandusecode | County land use code AKA zoning at the county level | object |
-| roomcnt | Number of rooms in the property | float64 |
-| unitcnt | Number of property units on the property | float 64 |
-| yearbuilt | The year the property was built | float 64 |
-| structuretaxvaluedollarcnt | The tax assessed value of the property structure | float64 |
-| home_value | The tax accessed value of the property | float64 |
-| taxamount | Property tax assessed for that year | float 64 |
-| logerror | Zillow's Zestimate model. Difference in sale price and estimated price | float64 |
-| transactiondate | Date of property purchase | object |
-| heatingorsystemdesc | Type of heating system in home | object |
-| county | Fips value converted to actual county | | object |
-| age | Age of property | float64 | 
+| **Column** | **Definition** |
+| team | Name of the home team  |
+| game | Game number in season |
+| date | Date game played |
+| opponent | Opponent team name |
+| teampoints | Home team score |
+| opponentpoints | Opponent score|
+| fieldgoals | Number of field goals made by home team|
+| fieldgoalsattempted | Number of field goals attempted by home team|
+| fieldgoal_pct | Field goal percentage for home team |
+| x3pointshots | 3 point shots made by the home team |
+| freethrows | Free throws made by the home team |
+| freethrowsattempted | Free throws attempted by home team |
+| freethrows_pct | Free throw percentage of home team|
+| offrebounds | Number of offensive rebounds by the home team |
+| totalrebounds | Total number of rebounds by the home team |
+| assists | Number of assist by the home team |
+| steals | Number of steals by the home team |
+| blocks | Number of blocks by the home team |
+| turnovers | Number of turnovers by the home team |
+| totalfouls | Number of fouls by the home team |
+| opp.fieldgoals| Opponents field goal percentage |
+| opp.fieldgoalsattempted| Opponents field goals attempted |
+| opp_fieldgoal_pct | Opponents field goal percentage |
+| opp.3pointshots | Opponents 3 point shots made |
+| opp.3pointshotsattempted | Opponents 3 point field goal percentage attempted |
+| opp_3pointshots_pct | Opponents 3 point field goal percentage |
+| opp.freethrows | Opponents free throws made |
+| opp.freethrowsattempted | Opponents free throws attempted |
+| opp_freethrows_pct | Opponents free throw percentage |
+| opp.offrebounds | Opponents offensive rebounds |
+| opp.totalrebounds | Opponents total rebounds |
+| opp.assists | Opponents total number of assists |
+| opp.steals | Opponents total number of steals |
+| opp.blocks | Opponents total number of blocks |
+| opp.turnovers | Opponents total number of turnovers |
+| opp.totalfouls | Opponents total fouls |
+| is_home | Away team = 0 Home team = 1 |
+| win | Loss = 0 win = 1 |
+
 
 ## Conclusions
 - ANNOVA tests were ran on price per square feet and logerror & bed bath ratio and logerror
