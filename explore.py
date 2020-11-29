@@ -4,23 +4,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_selection import RFE, SelectKBest, f_regression
 
-def add_scaled_columns(train, validate, test, scaler, columns_to_scale):
-    '''
-    '''
-    new_column_names = [c + '_scaled' for c in columns_to_scale]
-    scaler.fit(train[columns_to_scale])
-    
-    train_scaled = pd.DataFrame(scaler.transform(train[columns_to_scale]), 
-                            columns=new_column_names, 
-                            index=train.index)
-    validate_scaled = pd.DataFrame(scaler.transform(validate[columns_to_scale]), 
-                            columns=new_column_names, 
-                            index=validate.index)
-    test_scaled = pd.DataFrame(scaler.transform(test[columns_to_scale]), 
-                            columns=new_column_names, 
-                            index=test.index)
-    return train_scaled, validate_scaled, test_scaled
-
 ######################### Uses Recursive Feature Elimination (RFE) ############################
 
 def rfe_ranker(train_scaled, y_train, k):
