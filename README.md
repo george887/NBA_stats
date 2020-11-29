@@ -1,7 +1,7 @@
 # NBA Classification Project
 
 ## Goal of Project
-The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba.[games.stats.csv]() found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project. 
+The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv]() found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project. 
 
 ## Key Terms
 - A [single-unit property](https://help.rentingwell.com/article/multi-unit-vs-single-unit/) is a rental property that is rented as a single entity. A condo, a townhouse, or a vacation rental would typically be single-unit properties. If you’re adding a single-unit property to Renting Well you don’t need to add individual units – the tenant and lease are associated to the property itself.
