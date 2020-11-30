@@ -1,5 +1,5 @@
 ![maxresdefault](https://user-images.githubusercontent.com/62911364/100548752-211a6c00-3234-11eb-949c-38d71486c989.jpg)
-# NBA Classification Project
+# Drivers of Winning in the NBA
 
 ## Goal of Project
 The goal of this project is to see what features help predict a team win using of NBA games played in 2014 through 2018. I will utilize the nba [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) found on Kaggle. A jupyter notebook will document all phases of the project including data acquisition, data preparation, exploration and modeling. A README.md will be made to describe and reproduce project.
