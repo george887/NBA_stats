@@ -17,11 +17,11 @@ Some data preparation was performed prior to exploring the data
 - Equations found in prepare.py
 
 ## Explore
-- Created an explore.py file containing the recursive Feature Elemination function, Select K-Best function and scaled data frames to aid in modeling.
+- Created an explore.py file containing the recursive Feature Elimination function, Select K-Best function and scaled data frames to aid in modeling.
 
 ## Model
 - Classification models performed using model.py
-- Logistic Regression, Decesion Tree, Random Forest and K-Nearest Neighbor algorithims performed
+- Logistic Regression, Decision Tree, Random Forest and K-Nearest Neighbor algorithms performed
 
 ## Initial Thoughts
 1. Team points and opponent points will tell me if a team wins or loses. I will not be using this in my analysis
@@ -44,7 +44,6 @@ Some data preparation was performed prior to exploring the data
 
 
 ## Data Dictionary
-<details>
   
 | **Column** | **Definition** |
 | :------- | :-------|
@@ -85,24 +84,33 @@ Some data preparation was performed prior to exploring the data
 | opp.turnovers | Opponents total number of turnovers |
 | opp.totalfouls | Opponents total fouls |
 | is_home | Away team = 0 Home team = 1 |
+
+| **Target** | **Definition** |
+| :------- | :-------|
 | win | Loss = 0 win = 1 |
   
 ## Conclusions
-- ANNOVA tests were ran on price per square feet and logerror & bed bath ratio and logerror
-- Means were differnent in both test so the Ho was rejected
-- Clusters were created comparing building quality type id & bed bath ratio, price per sqft & age, and price per sqft and lot size per sqft
-- Dummy variables were created with clusters of price per sqft and lot size per sqft
-- Modeling was performed with scaled data along with the cluster dummies
-- The best model (Lassolars) did out perform the baseline RMSE 0.17374 on train and validate but did not on test 0.18188
-- Further testing needs to be done to see how different features can help reduce the RMSE of logerror
-- Look further into the relationship of binned bed bath ratio and logerror
-- Create dummy variables with price per sqft and age to model
+- There are many features that can influence a win
+- Picked a variety of the top features found in RFE and SelectKBest
+- Feature in modeling include:
+    - fieldgoals_pct, opp.fieldgoals_pct, opp.3pointshots, 3pointshots, opp.totalfouls, totalfouls, assist, and opp.assist
+- Baseline accuracy of a win = 50%
+- Scaled trained data fit with Logistic Regression, Decision Tree, Random Forest, and K-NearestNeighbor
+- All models moved to validation phase
+- Logistic Regression accuracy performed the best with 87% on test
+    | **Model** | **Train** | **Validate** | **Test** |
+    | :------- | :-------| :-------| :-------|
+    | Logistic Regression | 86% | 86% | 87% |
+    | Decision Tree | 82% | 79% | NA |
+    | Random Forest | 85% | 83% | NA |
+    | KNN | 88% | 82% | NA |
+- Logistic Regression model accuracy was consistent through all phases of testing 
+- Going foward, further testing can be done to optimize the best features to predict a win.
+- Injuries play a big factor in the success of a team. I did not account for this in my models and information was not in data set. It would be interesting to see how models will perform with this data
 
 ## How to reproduce
 
-- Have access to the Codeup SQL data base
-- Have credential in env.py file to establish a connection with the server
-- Use wrangle.py file for data acquisition and data preperation
-- Use explore.py file to explore
-- Look at MVP_walkthru.ipynb to see analysis done
+- Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle
+- Download prepare.py and model.py files to use in exploring and modeling data
+- Read through MVP_walkthru.ipynb to see analysis done
 
