@@ -115,6 +115,6 @@ Some data preparation was performed prior to exploring the data
 ## How to reproduce
 
 - Download [games.stats.csv](https://www.kaggle.com/ionaskel/nba-games-stats-from-2014-to-2018) on Kaggle
-- Download prepare.py and model.py files to use in exploring and modeling data
+- Download ```prepare.py``` and ```model.py``` files to use in exploring and modeling data
 - Read through MVP_walkthru.ipynb to see analysis done
 
