@@ -41,8 +41,8 @@ def logistic_regression(X_train, y_train):
     print(f'Classification Report\n {classification_report(y_train, y_pred)}')
     return coef_df, logit
 
-    ######################## Decesion Tree ############################
-def decesion_tree(X_train, y_train, k):
+    ######################## Decision Tree ############################
+def decision_tree(X_train, y_train, k):
     '''
     This function requires X_train, y_train and k (max_depth). A confusion matrix, models accuracy and 
     classification report are outputed
@@ -65,7 +65,7 @@ def decesion_tree(X_train, y_train, k):
     # Confusion matrix
     print(f'Confusion Matrix: \n\n {pd.crosstab(y_train, y_pred)}\n' )
     print(f'----------------------')
-    print("Decesion Tree Model Classification Report:\n", classification_report(y_train, y_pred))
+    print("Decision Tree Model Classification Report:\n", classification_report(y_train, y_pred))
 
     return clf
 
