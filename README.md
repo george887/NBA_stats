@@ -91,6 +91,7 @@ Some data preparation was performed prior to exploring the data
 | **Target** | **Definition** |
 | :------- | :-------|
 | win | Loss = 0 win = 1 |
+</details>
   
 ## Conclusions
 - There are many features that can influence a win
